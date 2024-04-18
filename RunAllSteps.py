@@ -223,8 +223,6 @@ def pretty_print_results(all_results_with, all_results_without, all_results_gene
                                        len(all_results_without[i]['generated_answers_without']) + len(
                                    all_results_with[i]['generated_answers_with'])), 2)
         acc_generation_average.append(acc_generation)
-        prob_score = np.round(np.mean(all_results_without[i]['answer_without_prob']) + np.mean(
-            all_results_with[i]['answer_with_prob']) / 2, 2)
         perplexity = np.round((np.mean(all_results_without[i]['perplexity_without']) + np.mean(
             all_results_with[i]['perplexity_with'])) / 2, 2)
         wikipedia_perplexity = np.round(np.mean(all_results_without[i]['wikipedia_pp_without']), 2)
@@ -249,10 +247,6 @@ def pretty_print_results(all_results_with, all_results_without, all_results_gene
                                                  non_hall_count / len(
                                              all_results_without[i]['answer_without_rank']))) * 100) / (
                                                general_count + hall_count + non_hall_count), 2)
-            prob_score = np.round((np.mean(all_results_without[i]['answer_without_prob']) * non_hall_count + np.mean(
-                all_results_with[i]['answer_with_prob']) * hall_count + np.mean(
-                all_results_general[i]['answer_general_prob']) * general_count) / (
-                                          general_count + hall_count + non_hall_count), 2)
             generation_acc = round(((sum([1 for j in all_results_general[i]['generated_answers_general'] if j < 0]) * (
                     general_count / len(all_results_general[i]['answer_general_rank'])) + sum(
                 [1 for j in all_results_with[i]['generated_answers_with'] if j < 0]) * (
