@@ -156,8 +156,8 @@ if __name__ == "__main__":
 
     if parser.parse_args().run_dataset_creation:
         # create dataset
-        create_dataset(parser.parse_args().dataset_name,
-                       parser.parse_args().threshold, parser.parse_args().model_name, parser.parse_args().alice)
+        create_dataset(dataset_name=parser.parse_args().dataset_name,
+                       threshold=parser.parse_args().threshold, model_name=parser.parse_args().model_name, alice=parser.parse_args().alice)
     if parser.parse_args().run_initial_test:
         # run initial test
         run_initial_test_on_dataset(threshold=parser.parse_args().threshold, model_name=parser.parse_args().model_name,
